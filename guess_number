@@ -1,7 +1,7 @@
 import tkinter as tk
 import random
 
-root=tk.TK()
+root=tk.Tk()
 root.title("Guess the Number")
 root.geometry("400x300")
 
@@ -33,6 +33,25 @@ def check_guess():
     
     guess=int(text)
 
-    
+    if guess < secret:
+        result_label.config(text="too low!")
+
+    elif guess > secret:
+        result_label.config(text="too high!")
+
+    else:
+        result_label.config(text=f"You got it!The number was{secret}.")
+
+check_btn=tk.Button(root,text="check",command=check_guess)
+check_btn.pack(pady=5)
+
+def reset_game():
+    global secret
+    secret = random.randint(1,100)
+    result_label.config(text="New game!Guess again.")
+    guess_entry.delete(0,tk.END)
+
+reset_btn = tk.Button(root,text="Reset",command=reset_game)
+reset_btn.pack(pady=5)
 
 root.mainloop()
