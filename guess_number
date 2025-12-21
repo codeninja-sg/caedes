@@ -21,17 +21,13 @@ secret=random.randint(1,100)
 
 def check_guess():
     text=guess_entry.get().strip()
+    print(text)
 
     if not text.isdigit():
         result_label.config(text="Please enter a number!")
         return
     guess=int(text)
 
-    if guess < secret:
-        result_label.config(text="Please enter a number!")
-        return
-    
-    guess=int(text)
 
     if guess < secret:
         result_label.config(text="too low!")
