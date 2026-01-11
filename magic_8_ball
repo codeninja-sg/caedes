@@ -44,3 +44,16 @@ ask_btn.pack(pady=5)
 def ask_pressed():
    give_answer()
 ask_btn.config(command=ask_pressed)
+
+def clear_all ():
+   
+   question_entry.delete(0,tk.END)
+
+   answer_label.config(text="")
+
+clear_btn=tk.Button(root,text="Clear",width=12,command=clear_all)
+
+clear_btn.pack(pady=5)
+
+
+root.mainloop()
