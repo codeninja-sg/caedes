@@ -15,9 +15,23 @@ canvas.grid(row=1,column=0,sticky="nsew",padx=8,pady=8)
 root.grid_rowconfigure(1,weight=1)
 root.grid_columnconfigure(0,weight=1)
 
+current_colour = "black"
+pen_size = 5
+last_x,last_y= None, None
 
+def start_draw(event):
+    global last_x,last_y
+    last_x,last_y = event.x,event.y
 
+def draw(event):
+    global last_x,last_y
+    if last_x is not None and last_y is not None:
+       canvas.create_line(last_x,last_y,event.x,event.y, fill=current_colour,width=pen_size,capstyle=tk.ROUND)
 
+    last_x,last_y = event.x,event.y
+                       
+canvas.bind("<Button-1>",start_draw)
+canvas.bind("<B1-Motion>",draw)
 
 
 
@@ -40,4 +54,3 @@ root.grid_columnconfigure(0,weight=1)
 
 
 root.mainloop()
-
