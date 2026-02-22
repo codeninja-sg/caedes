@@ -29,9 +29,15 @@ def draw(event):
        canvas.create_line(last_x,last_y,event.x,event.y, fill=current_colour,width=pen_size,capstyle=tk.ROUND)
 
     last_x,last_y = event.x,event.y
+
+def end_draw(event):
+    global last_x, last_y
+    last_x, last_y = None, None
+    
                        
 canvas.bind("<Button-1>",start_draw)
 canvas.bind("<B1-Motion>",draw)
+canvas.bind("<ButtonRelease-1>", end_draw)
 
 
 
