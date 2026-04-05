@@ -4,9 +4,9 @@ import random
 root=tk.Tk()
 root.title('Snake-1')
 
-SIZE = 20
-W = 400
-H = 400
+SIZE = 40
+W = 800
+H = 800
 
 canvas = tk.Canvas(root,width=W,height=H,bg='white')
 canvas.pack()
@@ -70,4 +70,3 @@ root.after(150, game_loop)
 
 draw()
 root.mainloop()
-
