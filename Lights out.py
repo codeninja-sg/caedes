@@ -19,7 +19,8 @@ root.title('Lights Out')
 ROWS = 5
 COLS = 5
 
-grid=[[0]* COLS for_ in range(ROWS)]
+grid= [[0]* COLS for _ in range(ROWS)]
+
 
 buttons = []
 
