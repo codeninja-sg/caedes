@@ -1,3 +1,5 @@
+import tkinter as tk
+
 grid = [
 [1,1,1,1,1],
 [1,1,1,1,1],
@@ -7,7 +9,7 @@ grid = [
 
 ROWS = 5
 COLS = 5
-root = tk.TK()
+root = tk.Tk()
 root.title('Lights Out')
 
 ROWS = 5
@@ -20,3 +22,8 @@ buttons = []
 
 for r in range(ROWS):
     for c in range(COLS):
+        btn = tk.Button(root, width=6, height=3, bg='grey20')
+        btn.grid(row=r, column=c, padx=2, pady=2)
+        buttons.append(btn)
+
+root.mainloop()        
